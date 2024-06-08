@@ -1,0 +1,54 @@
+.footer-top{
+    display: flex;
+}
+.footer-top{
+    display: flex;
+    background-color: #F2EFE8;
+    align-items: center;
+    font-family: "Judson", serif;
+    color: #A7722F;
+    padding-left: 200px;
+}
+.contact{
+    padding-left: 150px;
+}
+.contact h1{
+    font-size: 1.5rem;
+}
+.logo img{
+    width: 70%;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+.text-contact{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+.text-contact i {
+    margin-bottom: 20px;
+  }
+.text-contact i span {
+    font-family: "Judson", serif;
+    padding-left: 10px;
+    font-weight: 100;
+}
+.donvi{
+   text-align: start;
+   padding-left: 400px;
+}
+.donvi h2{
+    font-size: 1.5rem;
+}
+.p-donvi{
+    margin-bottom: 20px;
+    color: #555555;
+}
+.copy{
+    padding: 1px 0 15px 0 ;
+    background-color: #E5DED2;
+    color: #A7722F;
+}

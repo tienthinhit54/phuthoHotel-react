@@ -1,0 +1,23 @@
+.NavbarItem{
+    overflow: hidden;
+    font-family: "Judson", serif;
+    font-weight: 500;
+    font-size: large;
+    padding-left: 200px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 80px; 
+    padding: 20px ;
+  }
+.nav img{
+    width: 3%;
+}
+.nav span:hover{
+    text-decoration: underline;
+    color: #DBA765;
+    cursor: pointer;
+}
