@@ -1,22 +1,29 @@
-.NavbarItem{
+.NavbarItem {
     overflow: hidden;
     font-family: "Judson", serif;
     font-weight: 500;
     font-size: large;
     padding-left: 200px;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    color: white;
 }
 
 .nav {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    gap: 80px; 
-    padding: 20px ;
-  }
-.nav img{
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 20px;
+}
+
+.nav img {
     width: 3%;
 }
-.nav span:hover{
+
+.nav span:hover {
     text-decoration: underline;
     color: #DBA765;
     cursor: pointer;
