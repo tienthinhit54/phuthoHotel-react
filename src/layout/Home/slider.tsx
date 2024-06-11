@@ -27,50 +27,9 @@ const Slide = styled.div<{ background: string; current: boolean }>`
   left: 0;
 `;
 
-const DotsWrapper = styled.div`
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
-const Dot = styled.div<{ active: boolean }>`
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
-  background-color: ${props => (props.active ? 'black' : 'white')};
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-`;
 
-const NavigationButton = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0);
-  border: none;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1000;
-  font-size: 2rem;
-  font-weight: bold;
 
-  &:hover {
-    background: rgba(0, 0, 0, 0.7);
-  }
-`;
-
-const PrevButton = styled(NavigationButton)`
-  left: 10px;
-`;
-
-const NextButton = styled(NavigationButton)`
-  right: 10px;
-`;
 
 const ImageSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -84,17 +43,7 @@ const ImageSlider: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleDotClick = (index: number) => {
-    setCurrentIndex(index);
-  };
 
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - slidesToScroll + images.length) % images.length);
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + slidesToScroll) % images.length);
-  };
 
   return (
     <SliderWrapper>
@@ -105,17 +54,7 @@ const ImageSlider: React.FC = () => {
           current={index === currentIndex}
         />
       ))}
-      <DotsWrapper>
-        {images.map((_, index) => (
-          <Dot
-            key={index}
-            active={index === currentIndex}
-            onClick={() => handleDotClick(index)}
-          />
-        ))}
-      </DotsWrapper>
-      <PrevButton onClick={handlePrevClick}>‹</PrevButton>
-      <NextButton onClick={handleNextClick}>›</NextButton>
+      
     </SliderWrapper>
   );
 };
