@@ -1,10 +1,14 @@
 import ImageSlider from './slider';
 import '../../styles/homepage.css'
 import { PushData } from '../../Data/PushData';
-import React, { useState, useEffect, ChangeEvent } from 'react';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import React, { useState, useEffect, ChangeEvent, useRef } from 'react';
+import { doc, getDoc, collection, query, where, limit, getDocs, orderBy } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { firestore, storage } from '../../config/firebase'
+import VideoPlayer from './VideoPlayer';
+import video from '../../shared/videos/videophutho.mp4'
+import img from '../../shared/images/homevideo.png'
+import { useParams } from 'react-router-dom';
 interface UploadedData {
   id: string;
   nameroom: string;
@@ -28,13 +32,13 @@ interface uploadresData {
   id: string;
   image: string;
   info: string;
-  button:string;
+  button: string;
 }
-interface uploadmassData{
+interface uploadmassData {
   id: string;
   image: string;
   info: string;
-  button:string;
+  button: string;
 }
 
 
@@ -43,6 +47,12 @@ const HomePage: React.FC = () => {
   const [uploadresData, setUploadresData] = useState<uploadresData[]>([]);
   const [uploadmassData, setUploadmassData] = useState<uploadresData[]>([]);
   const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const [breakfast, setBreakfast] = useState<any>(null);
+  const [relatedBreakfast, setRelatedBreakfast] = useState<any[]>([]);
+
+
+
 
   useEffect(() => {
     const fetchUploadedData = async () => {
@@ -97,6 +107,39 @@ const HomePage: React.FC = () => {
     };
     massUploadedData();
   }, [])
+  useEffect(() => {
+    const fetchData = async () => {
+      if (id) {
+        try {
+          const docRef = doc(firestore, 'breakfast', id);
+          const docSnap = await getDoc(docRef);
+
+          if (docSnap.exists()) {
+            setBreakfast(docSnap.data());
+
+            const articlesRef = collection(firestore, 'breakfast');
+            const q = query(articlesRef, orderBy('timestamp', 'desc'), limit(5));
+            const querySnapshot = await getDocs(q);
+
+            const articles = querySnapshot.docs
+              .filter(doc => doc.id !== id) // Exclude the current article
+              .map(doc => ({
+                id: doc.id,
+                ...doc.data()
+              }));
+
+            setRelatedBreakfast(articles.slice(0, 4)); // Ensure only 4 related articles are shown
+          } else {
+            console.log('No such document!');
+          }
+        } catch (error) {
+          console.error('Error fetching articles:', error);
+        }
+      }
+    };
+
+    fetchData();
+  }, [id]);
   const handleContentClick = () => {
     navigate(`/room`);
   }
@@ -113,13 +156,14 @@ const HomePage: React.FC = () => {
           Đối diện khách sạn là khu mua sắm Lotte Mart, và đường vào CVVH Đầm Sen.
           Khách sạn đã được Phuthotourist cải tạo nâng cấp trong năm 2017.</p>
       </div>
-      <div className='room-home' onClick={handleContentClick}>
+
+      <div className='room-home' >
         <div className='top-room'>
           <h1 >CÁC LOẠI PHÒNG NGHỈ</h1>
           <p>Khách sạn Phú Thọ có 35 phòng nghỉ các loại Standard, Deluxe, Suite.</p>
           <p>Mỗi phòng đều đầy đủ tiện nghi cao cấp, giúp quý khách có những giấc ngủ ngon sau những hành trình dài.</p>
         </div>
-        <div className='card-homeroom' >
+        <div className='card-homeroom' onClick={handleContentClick} >
           {uploadedData.map((data) => (
             <div className='item-card' key={data.id}>
               <img src={data.image} alt="" />
@@ -148,6 +192,9 @@ const HomePage: React.FC = () => {
           ))}
         </div>
       </div>
+      <div className='video-home'>
+        <VideoPlayer videoSrc={video} posterSrc={img} />
+      </div>
       <div className='utilities-home'>
         <h1>CÁC TIỆN ÍCH KHÁC</h1>
         <div className='res-home'>
@@ -163,18 +210,36 @@ const HomePage: React.FC = () => {
           )}
         </div>
         <div className='mass-home'>
-          {uploadmassData.map((data)=>
-          <div className='item-mass' key={data.id}>
-            <img src={data.image} alt="" />
-            <div className='text-mass'>
+          {uploadmassData.map((data) =>
+            <div className='item-mass' key={data.id}>
+              <img src={data.image} alt="" />
+              <div className='text-mass'>
                 <p className='mass'>Massage</p>
                 <p className='info-mass'>{data.info}</p>
                 <button onClick={handleMassClick}>{data.button}</button>
               </div>
-          </div>
+            </div>
           )}
         </div>
+
       </div>
+      <div className='news-home'>
+        <h1>CÁC BÀI VIẾT MỚI</h1>
+        <div className='diemtam-news'>
+          <div className='item-news-diemtam'>
+          </div>
+        </div>
+        <div className='room-news'>
+          <div className='item-news-room'></div>
+        </div>
+        <div className='mass-news'>
+          <div className='item-news-mass'></div>
+        </div>
+        <div className='res-news'>
+          <div className='item-news-res'></div>
+        </div>
+      </div>
+      <PushData />
     </div>
   );
 };

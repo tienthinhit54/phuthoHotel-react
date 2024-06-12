@@ -7,11 +7,17 @@ interface UploadedData {
     id: string;
     info: string;
     image: string;
+    title:string;
+    maintitle:string;
+    admin:string;
 }
 
 export const PushData: React.FC = () => {
-    const [info, setInfo] = useState<string>('');
+    const [info, setInfo] = useState<string>('Điểm tâm');
     const [image, setImage] = useState<File | null>(null);
+    const [title, setTitle] = useState<string>('Điểm tâm sáng tại khách sạn Phú Thọ');
+    const [maintitle, setMaintitle] = useState<string>('Phòng Standard khách sạn Phú Thọ (Quận 11, TP.HCM) là loại phòng tiêu chuẩn, diện tích 25m2...');
+    const [admin, setAdmin] = useState<string>('Admin');
     const [uploading, setUploading] = useState<boolean>(false);
     const [uploadedData, setUploadedData] = useState<UploadedData[]>([]);
 
@@ -27,17 +33,17 @@ export const PushData: React.FC = () => {
         setInfo(e.target.value);
     };
 
-    // const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //     setName(e.target.value);
-    // };
+     const handleTitleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+         setTitle(e.target.value);
+     };
 
-    // const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //     setPhone(e.target.value);
-    // };
+     const handleMaintitleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+         setMaintitle(e.target.value);
+     };
 
-    // const handleMailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //     setMail(e.target.value);
-    // };
+     const handleAdminChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+         setAdmin(e.target.value);
+     };
 
     // const handleMessChange = (e: ChangeEvent<HTMLInputElement>) => {
     //     setMess(e.target.value);
@@ -58,12 +64,14 @@ export const PushData: React.FC = () => {
                 const snapshot = await uploadBytes(imgRef, image);
                 const downloadURL = await getDownloadURL(snapshot.ref);
 
-                const docRef = await addDoc(collection(firestore, 'massdata'), {
+                const docRef = await addDoc(collection(firestore, 'breakfast'), {
                     // nameroom,
                     // des,
                     info,
-                    // name,
+                    title,
                     // phone,
+                    maintitle,
+                    admin,
                     image: downloadURL,
                     // mail,
                     // mess,
@@ -80,6 +88,9 @@ export const PushData: React.FC = () => {
                         // nameroom,
                         // des,
                         info,
+                        title,
+                        maintitle,
+                        admin,
                         // name,
                         // phone,
                         image: downloadURL,
@@ -96,6 +107,9 @@ export const PushData: React.FC = () => {
                 setUploading(false);
                 // setNameroom('');
                 // setDes('');
+                setAdmin('');
+                setTitle('');
+                setMaintitle('');
                 setInfo('');
                 // setName('');
                 // setPhone('');
@@ -128,6 +142,27 @@ export const PushData: React.FC = () => {
             <textarea
                 value={info}
                 onChange={handleInfoChange}
+                placeholder="info"
+                rows={5}
+                style={{ width: '100%' }}
+            />
+              <textarea
+                value={title}
+                onChange={handleTitleChange}
+                placeholder="info"
+                rows={5}
+                style={{ width: '100%' }}
+            />
+              <textarea
+                value={maintitle}
+                onChange={handleMaintitleChange}
+                placeholder="info"
+                rows={5}
+                style={{ width: '100%' }}
+            />
+              <textarea
+                value={admin}
+                onChange={handleAdminChange}
                 placeholder="info"
                 rows={5}
                 style={{ width: '100%' }}
