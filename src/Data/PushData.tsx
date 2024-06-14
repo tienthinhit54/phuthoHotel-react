@@ -7,9 +7,10 @@ interface UploadedData {
     id: string;
     info: string;
     image: string;
-    title:string;
-    maintitle:string;
-    admin:string;
+    title: string;
+    maintitle: string;
+    admin: string;
+    time: { seconds: number; nanoseconds: number };
 }
 
 export const PushData: React.FC = () => {
@@ -21,33 +22,21 @@ export const PushData: React.FC = () => {
     const [uploading, setUploading] = useState<boolean>(false);
     const [uploadedData, setUploadedData] = useState<UploadedData[]>([]);
 
-    // const handleNameRoomChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //     setNameroom(e.target.value);
-    // };
-
-    // const handleDesChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //     setDes(e.target.value);
-    // };
-
     const handleInfoChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setInfo(e.target.value);
     };
 
-     const handleTitleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-         setTitle(e.target.value);
-     };
+    const handleTitleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setTitle(e.target.value);
+    };
 
-     const handleMaintitleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-         setMaintitle(e.target.value);
-     };
+    const handleMaintitleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setMaintitle(e.target.value);
+    };
 
-     const handleAdminChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-         setAdmin(e.target.value);
-     };
-
-    // const handleMessChange = (e: ChangeEvent<HTMLInputElement>) => {
-    //     setMess(e.target.value);
-    // };
+    const handleAdminChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setAdmin(e.target.value);
+    };
 
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -59,43 +48,29 @@ export const PushData: React.FC = () => {
         if (info && image) {
             setUploading(true);
             try {
-                // Upload image to Firebase Storage
                 const imgRef = storageRef(storage, `images/${image.name}`);
                 const snapshot = await uploadBytes(imgRef, image);
                 const downloadURL = await getDownloadURL(snapshot.ref);
 
                 const docRef = await addDoc(collection(firestore, 'breakfast'), {
-                    // nameroom,
-                    // des,
                     info,
                     title,
-                    // phone,
                     maintitle,
                     admin,
                     image: downloadURL,
-                    // mail,
-                    // mess,
                     timestamp: new Date(),
-
                 });
 
-
-                // Add the new data to the local state
                 setUploadedData((prevData) => [
                     ...prevData,
                     {
                         id: docRef.id,
-                        // nameroom,
-                        // des,
                         info,
                         title,
                         maintitle,
                         admin,
-                        // name,
-                        // phone,
                         image: downloadURL,
-                        // mail,
-                        // mess,
+                        time: { seconds: new Date().getTime() / 1000, nanoseconds: 0 }, // Example
                     },
                 ]);
 
@@ -105,17 +80,11 @@ export const PushData: React.FC = () => {
                 alert('Upload failed!');
             } finally {
                 setUploading(false);
-                // setNameroom('');
-                // setDes('');
                 setAdmin('');
                 setTitle('');
                 setMaintitle('');
                 setInfo('');
-                // setName('');
-                // setPhone('');
                 setImage(null);
-                // setMail('');
-                // setMess('');
             }
         } else {
             alert('Please provide all required fields.');
@@ -124,20 +93,6 @@ export const PushData: React.FC = () => {
 
     return (
         <div className="container">
-            {/* <input type="text" value={nameroom} onChange={handleNameRoomChange} placeholder="Enter nameroom" />
-            <input type="text" value={des} onChange={handleDesChange} placeholder="Enter des" />
-            <textarea
-                value={info}
-                onChange={handleInfoChange}
-                placeholder="info"
-                rows={5}
-                style={{ width: '100%' }}
-            />
-            <input type="text" value={name} onChange={handleNameChange} placeholder="Enter name" />
-            <input type="text" value={phone} onChange={handlePhoneChange} placeholder="Enter phone" />
-            <input type="text" value={mail} onChange={handleMailChange} placeholder="Enter mail" />
-            <input type="file" onChange={handleImageChange} />
-            <input type="text" value={mess} onChange={handleMessChange} placeholder="Enter mess" /> */}
             <input type="file" onChange={handleImageChange} />
             <textarea
                 value={info}
@@ -146,24 +101,24 @@ export const PushData: React.FC = () => {
                 rows={5}
                 style={{ width: '100%' }}
             />
-              <textarea
+            <textarea
                 value={title}
                 onChange={handleTitleChange}
-                placeholder="info"
+                placeholder="title"
                 rows={5}
                 style={{ width: '100%' }}
             />
-              <textarea
+            <textarea
                 value={maintitle}
                 onChange={handleMaintitleChange}
-                placeholder="info"
+                placeholder="maintitle"
                 rows={5}
                 style={{ width: '100%' }}
             />
-              <textarea
+            <textarea
                 value={admin}
                 onChange={handleAdminChange}
-                placeholder="info"
+                placeholder="admin"
                 rows={5}
                 style={{ width: '100%' }}
             />

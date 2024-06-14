@@ -79,22 +79,6 @@ const OrtherHomePage: React.FC = () => {
                 </div>
 
             </div>
-            <div className='news-home'>
-                <h1>CÁC BÀI VIẾT MỚI</h1>
-                <div className='diemtam-news'>
-                    <div className='item-news-diemtam'>
-                    </div>
-                </div>
-                <div className='room-news'>
-                    <div className='item-news-room'></div>
-                </div>
-                <div className='mass-news'>
-                    <div className='item-news-mass'></div>
-                </div>
-                <div className='res-news'>
-                    <div className='item-news-res'></div>
-                </div>
-            </div>
         </>
     );
 };

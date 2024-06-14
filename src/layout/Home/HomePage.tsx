@@ -11,49 +11,14 @@ import img from '../../shared/images/homevideo.png'
 import { useParams } from 'react-router-dom';
 import RoomHomePage from '../../components/DataRoomhomeComponents';
 import OrtherHomePage from '../../components/OtherHome';
+import NewsHomePage from '../../components/newsHomeComponent';
 
 
 
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>();
-  const [breakfast, setBreakfast] = useState<any>(null);
-  const [relatedBreakfast, setRelatedBreakfast] = useState<any[]>([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (id) {
-        try {
-          const docRef = doc(firestore, 'breakfast', id);
-          const docSnap = await getDoc(docRef);
-
-          if (docSnap.exists()) {
-            setBreakfast(docSnap.data());
-
-            const articlesRef = collection(firestore, 'breakfast');
-            const q = query(articlesRef, orderBy('timestamp', 'desc'), limit(5));
-            const querySnapshot = await getDocs(q);
-
-            const articles = querySnapshot.docs
-              .filter(doc => doc.id !== id) // Exclude the current article
-              .map(doc => ({
-                id: doc.id,
-                ...doc.data()
-              }));
-
-            setRelatedBreakfast(articles.slice(0, 4)); // Ensure only 4 related articles are shown
-          } else {
-            console.log('No such document!');
-          }
-        } catch (error) {
-          console.error('Error fetching articles:', error);
-        }
-      }
-    };
-
-    fetchData();
-  }, [id]);
   const handleContentClick = () => {
     navigate(`/room`);
   }
@@ -75,6 +40,7 @@ const HomePage: React.FC = () => {
         <VideoPlayer videoSrc={video} posterSrc={img} />
       </div>
       <OrtherHomePage/>
+      <NewsHomePage/>
     </div>
   );
 };

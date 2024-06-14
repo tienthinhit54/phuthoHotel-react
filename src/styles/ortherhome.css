@@ -1,6 +1,7 @@
 .utilities-home {
-    height: 1000px;
-
+    padding-bottom: 80PX;
+    height: 900px;
+    font-family: "Judson", serif;
 }
 
 .utilities-home h1 {
@@ -40,7 +41,7 @@
 
 .item-res button {
     position: absolute;
-    left: 49.4%;
+    left: 51.2%;
     height: 40px;
     color: white;
     background-color: #DBA765;
