@@ -1,5 +1,5 @@
 import React, { useState, useEffect,  } from 'react';
-import { doc, getDoc, collection,  getDocs } from 'firebase/firestore';
+import { collection,  getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { firestore, storage } from '../config/firebase'
 import '../styles/roomhome.css'

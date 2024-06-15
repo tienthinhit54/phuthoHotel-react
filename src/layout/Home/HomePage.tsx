@@ -1,23 +1,20 @@
 import ImageSlider from './slider';
 import '../../styles/homepage.css'
-import { PushData } from '../../Data/PushData';
-import React, { useState, useEffect, ChangeEvent, useRef } from 'react';
-import { doc, getDoc, collection, query, where, limit, getDocs, orderBy } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { firestore, storage } from '../../config/firebase'
 import VideoPlayer from './VideoPlayer';
 import video from '../../shared/videos/videophutho.mp4'
 import img from '../../shared/images/homevideo.png'
-import { useParams } from 'react-router-dom';
 import RoomHomePage from '../../components/DataRoomhomeComponents';
 import OrtherHomePage from '../../components/OtherHome';
 import NewsHomePage from '../../components/newsHomeComponent';
+import MapComponent from '../../components/GooglemapComponent';
 
 
 
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
+  const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;;
 
   const handleContentClick = () => {
     navigate(`/room`);
@@ -35,12 +32,13 @@ const HomePage: React.FC = () => {
           Đối diện khách sạn là khu mua sắm Lotte Mart, và đường vào CVVH Đầm Sen.
           Khách sạn đã được Phuthotourist cải tạo nâng cấp trong năm 2017.</p>
       </div>
-      <RoomHomePage/>
+      <RoomHomePage />
       <div className='video-home'>
         <VideoPlayer videoSrc={video} posterSrc={img} />
       </div>
-      <OrtherHomePage/>
-      <NewsHomePage/>
+      <OrtherHomePage />
+      <NewsHomePage />
+      <MapComponent apiKey={apiKey} />
     </div>
   );
 };
