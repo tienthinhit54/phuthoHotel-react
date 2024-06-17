@@ -51,7 +51,6 @@ const RoomPage: React.FC = () => {
             {uploadedData.map((data) => (<div key={data.id} className='item-card-articleroom'>
               <img src={data.image} alt={data.content} />
               <h2>{data.content}</h2>
-              
               <div className='text-card-articleroom'>
                 <h3>{data.title}</h3>
                 <p>{data.mess}</p>

@@ -5,38 +5,36 @@ import { firestore, storage } from '../config/firebase';
 
 interface UploadedData {
     id: string;
-    info: string;
+    nameroom: string;
     image: string;
-    title: string;
-    maintitle: string;
-    admin: string;
+    describe: string;
     time: { seconds: number; nanoseconds: number };
 }
 
 export const PushData: React.FC = () => {
-    const [info, setInfo] = useState<string>('Điểm tâm');
+    const [nameroom, setnameroom] = useState<string>('Điểm tâm');
     const [image, setImage] = useState<File | null>(null);
-    const [title, setTitle] = useState<string>('Điểm tâm sáng tại khách sạn Phú Thọ');
-    const [maintitle, setMaintitle] = useState<string>('Phòng Standard khách sạn Phú Thọ (Quận 11, TP.HCM) là loại phòng tiêu chuẩn, diện tích 25m2...');
-    const [admin, setAdmin] = useState<string>('Admin');
+    const [describe, setdescribe] = useState<string>('Điểm tâm sáng tại khách sạn Phú Thọ');
+    // const [maindescribe, setMaindescribe] = useState<string>('Phòng Standard khách sạn Phú Thọ (Quận 11, TP.HCM) là loại phòng tiêu chuẩn, diện tích 25m2...');
+    // const [admin, setAdmin] = useState<string>('Admin');
     const [uploading, setUploading] = useState<boolean>(false);
     const [uploadedData, setUploadedData] = useState<UploadedData[]>([]);
 
-    const handleInfoChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        setInfo(e.target.value);
+    const handlenameroomChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setnameroom(e.target.value);
     };
 
-    const handleTitleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        setTitle(e.target.value);
+    const handledescribeChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setdescribe(e.target.value);
     };
 
-    const handleMaintitleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        setMaintitle(e.target.value);
-    };
+    // const handleMaindescribeChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    //     setMaindescribe(e.target.value);
+    // };
 
-    const handleAdminChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        setAdmin(e.target.value);
-    };
+    // const handleAdminChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    //     setAdmin(e.target.value);
+    // };
 
     const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -45,18 +43,18 @@ export const PushData: React.FC = () => {
     };
 
     const handleUpload = async () => {
-        if (info && image) {
+        if (nameroom && image) {
             setUploading(true);
             try {
                 const imgRef = storageRef(storage, `images/${image.name}`);
                 const snapshot = await uploadBytes(imgRef, image);
                 const downloadURL = await getDownloadURL(snapshot.ref);
 
-                const docRef = await addDoc(collection(firestore, 'breakfast'), {
-                    info,
-                    title,
-                    maintitle,
-                    admin,
+                const docRef = await addDoc(collection(firestore, 'data'), {
+                    nameroom,
+                    describe,
+                    // maindescribe,
+                    // admin,
                     image: downloadURL,
                     timestamp: new Date(),
                 });
@@ -65,10 +63,10 @@ export const PushData: React.FC = () => {
                     ...prevData,
                     {
                         id: docRef.id,
-                        info,
-                        title,
-                        maintitle,
-                        admin,
+                        nameroom,
+                        describe,
+                        // maindescribe,
+                        // admin,
                         image: downloadURL,
                         time: { seconds: new Date().getTime() / 1000, nanoseconds: 0 }, // Example
                     },
@@ -80,10 +78,8 @@ export const PushData: React.FC = () => {
                 alert('Upload failed!');
             } finally {
                 setUploading(false);
-                setAdmin('');
-                setTitle('');
-                setMaintitle('');
-                setInfo('');
+                setdescribe('');
+                setnameroom('');
                 setImage(null);
             }
         } else {
@@ -95,23 +91,23 @@ export const PushData: React.FC = () => {
         <div className="container">
             <input type="file" onChange={handleImageChange} />
             <textarea
-                value={info}
-                onChange={handleInfoChange}
-                placeholder="info"
+                value={nameroom}
+                onChange={handlenameroomChange}
+                placeholder="nameroom"
                 rows={5}
                 style={{ width: '100%' }}
             />
             <textarea
-                value={title}
-                onChange={handleTitleChange}
-                placeholder="title"
+                value={describe}
+                onChange={handledescribeChange}
+                placeholder="describe"
                 rows={5}
                 style={{ width: '100%' }}
             />
-            <textarea
-                value={maintitle}
-                onChange={handleMaintitleChange}
-                placeholder="maintitle"
+            {/* <textarea
+                value={maindescribe}
+                onChange={handleMaindescribeChange}
+                placeholder="maindescribe"
                 rows={5}
                 style={{ width: '100%' }}
             />
@@ -121,7 +117,7 @@ export const PushData: React.FC = () => {
                 placeholder="admin"
                 rows={5}
                 style={{ width: '100%' }}
-            />
+            /> */}
             <button onClick={handleUpload} disabled={uploading}>
                 {uploading ? 'Uploading...' : 'Upload'}
             </button>

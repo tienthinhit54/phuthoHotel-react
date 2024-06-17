@@ -1,0 +1,70 @@
+.massage{
+    font-family: "Judson", serif;
+}
+
+.textslider{
+    width: 100%;
+    height: 35%;
+    color: white;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding-top: 10%;
+}
+
+.textslider p{
+    width: 39%;
+    padding-left: 30%;
+}
+.card-room-massge{
+    margin: 40px 0 40px 0;
+    padding: 50px 0 400px 0;
+    background-color: #F2EFE8;
+}
+.massage-room h2 {
+    color: #A7722F;
+    padding-bottom: 20px;
+}
+.card-massage{
+    width: 70%;
+    position: absolute;
+    left: 15%;
+    transform: translate(-50%-50%);
+    background-color: white;
+    
+}
+.item-cardmassge{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap:16px;
+    
+}
+.item{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+.item-cardmassge img{
+    width: 100%;
+    height: 150px;
+}
+
+.text-itemmassge h3:hover{
+    text-decoration: underline;
+}
+
+.text-itemmassge p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    font-size: 0.85rem;
+    -webkit-line-clamp: 4;
+    text-align: center;
+    padding-left: 10px;
+}
+.content-massagepage{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+}

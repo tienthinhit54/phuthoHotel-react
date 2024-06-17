@@ -35,7 +35,7 @@ const OrtherHomePage: React.FC = () => {
     }, [])
     useEffect(() => {
         const massUploadedData = async () => {
-            const querySnapshot = await getDocs(collection(firestore, 'massdata'));
+            const querySnapshot = await getDocs(collection(firestore, 'massdatahome'));
             const data: uploadmassData[] = querySnapshot.docs.map((doc) => ({
                 id: doc.id,
                 info: doc.data().info,
