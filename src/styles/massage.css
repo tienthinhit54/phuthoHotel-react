@@ -1,58 +1,64 @@
-.massage{
+.massage {
     font-family: "Judson", serif;
 }
 
-.textslider{
+.textslider {
     width: 100%;
-    height: 35%;
+    height: 35.7%;
     color: white;
     position: absolute;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5);
     padding-top: 10%;
 }
 
-.textslider p{
+.textslider p {
     width: 39%;
     padding-left: 30%;
 }
-.card-room-massge{
+
+.card-room-massge {
     margin: 40px 0 40px 0;
     padding: 50px 0 400px 0;
     background-color: #F2EFE8;
 }
+
 .massage-room h2 {
     color: #A7722F;
     padding-bottom: 20px;
 }
-.card-massage{
+
+.card-massage {
     width: 70%;
     position: absolute;
     left: 15%;
     transform: translate(-50%-50%);
     background-color: white;
-    
+
 }
-.item-cardmassge{
+
+.item-cardmassge {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap:16px;
-    
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+
 }
-.item{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+.item {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
-.item-cardmassge img{
+
+.item-cardmassge img {
     width: 100%;
     height: 150px;
 }
 
-.text-itemmassge h3:hover{
+.text-itemmassge h3:hover {
     text-decoration: underline;
 }
 
-.text-itemmassge p{
+.text-itemmassge p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -63,8 +69,187 @@
     text-align: center;
     padding-left: 10px;
 }
-.content-massagepage{
-    width: 10%;
+
+.content-massagepage {
+    width: 100%;
+    padding-bottom: 450px;
+}
+
+.card1-massage {
     display: flex;
     flex-direction: column;
+}
+
+.item1-card-massage {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 14%;
+    padding-bottom: 300px;
+}
+
+.item1-card-massage img {
+    width: 35%;
+    height: 360px;
+}
+
+.text1-massage {
+    position: absolute;
+    text-align: start;
+    width: 28%;
+    left: 51%;
+}
+
+.card2-massagepage {
+    display: flex;
+}
+
+.item2-card-massage img {
+    width: 35%;
+    height: 360px;
+    position: absolute;
+    left: 51%;
+    top: 162%;
+}
+
+.text2-massage {
+    width: 23%;
+    text-align: right;
+    position: absolute;
+    top: 175%;
+    left: 26%;
+}
+
+.card3-massagepage {
+    display: flex;
+    flex-direction: column;
+    padding-top: 90px;
+}
+
+.card3-massage {
+    display: flex;
+    flex-direction: column;
+}
+
+.item3-card-massage {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 14%;
+}
+
+.item3-card-massage img {
+    width: 35%;
+    height: 360px;
+}
+
+.text3-massage {
+    position: absolute;
+    text-align: start;
+    width: 28%;
+    left: 51%;
+}
+
+.card4-massagepage {
+    display: flex;
+}
+
+.item4-card-massage img {
+    width: 35%;
+    height: 360px;
+    position: absolute;
+    left: 51%;
+    top: 242%;
+}
+
+.text4-massage {
+    width: 25%;
+    text-align: right;
+    position: absolute;
+    top: 252%;
+    left: 24%;
+}
+
+.content-massagepage h2 {
+    color: #DBA765;
+}
+
+.content-massagepage p {
+    color: #555555;
+}
+
+.mass-news {
+    height: 500px;
+    width: 100%;
+}
+
+.article-mass {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.article-mass h2{
+    color: #A7722F;
+    padding-bottom: 10px;
+}
+.iteam-newsmass {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding-left: 8%;
+}
+
+.item-card-newsmass {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    width: 70%;
+}
+
+.item-card-newsmass img {
+    width: 100%;
+    height: 180px;
+}
+
+.overlay-text-mass p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    font-size: 0.85rem;
+    -webkit-line-clamp: 3;
+    text-align: start;
+    padding-left: 15px;
+}
+.overlay-text-mass h2{
+    background-color: #DBA765;
+    font-size: small;
+    color: white;
+    width: 3.5%;
+    padding: 5px;
+    position: absolute;
+    top: 312.3%;
+}
+.overlay-text-mass h3{
+    text-align: start;
+    padding-left: 15px;
+    color: #404040;
+}
+.overlay-text-mass h3:hover{
+    text-decoration: underline;
+}
+.text-time-massage{
+    color: #DBA765;
+    text-align: start;
+    padding-bottom: 10px;
+}
+.text-time-massage i{
+    padding-left: 15px;
+}
+.text-time-massage span{
+    font-family: "Judson", serif;
+    color:#999999;
+    font-weight: 100;
+    
+    font-size: small;
 }

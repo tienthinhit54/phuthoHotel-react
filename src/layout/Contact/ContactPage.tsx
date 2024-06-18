@@ -1,9 +1,10 @@
 import React from 'react';
+import ImageSlider from '../Home/slider';
 
 const ContactPage: React.FC = () => {
   return (
-    <div>
-      <h1>Contact Page</h1>
+    <div className='contact'>
+      <ImageSlider/>
     </div>
   );
 };
