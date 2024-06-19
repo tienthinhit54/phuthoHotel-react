@@ -1,0 +1,157 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    font-family: "Judson", serif;
+}
+
+.slider {
+    padding-bottom: 600px;
+}
+
+.slider img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.text-slider {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 72.5%;
+}
+
+.text-slider h1 {
+    position: absolute;
+    top: 50%;
+    color: white;
+    left: 45.3%;
+    font-size: 2rem;
+}
+
+.phone {
+    padding-bottom: 1050px;
+}
+
+.phone h2 {
+    padding: 60px 0 20px 580px;
+    font-size: 2rem;
+    color: #A7722F;
+}
+
+.item-contact {
+    padding: 10px;
+    display: flex;
+}
+
+.phone-item {
+    display: flex;
+    border-right: 1px solid #ccc
+}
+
+.item-contact i {
+    color: #DBA765;
+    text-align: center;
+    padding-left: 305px;
+    font-size: 3rem;
+}
+
+.item-contact p {
+    font-size: 1rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+}
+
+.first {
+    color: #DBA765;
+}
+
+.last {
+    color: #555555;
+    padding-top: 15px;
+}
+
+.last-location {
+    position: absolute;
+    color: #555555;
+    width: 18%;
+    left: 40.3%;
+}
+
+.wellcom {
+    position: absolute;
+    left: 0;
+    background-color: #F2EFE8;
+    top: 100%;
+    width: 100%;
+    height: 550px;
+
+}
+
+.wellcom-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.wellcom-item h3 {
+    text-align: center;
+    font-size: 2rem;
+}
+.wellcom-item p{
+    font-size: 2rem;
+    position: absolute;
+    top:10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+}
+
+.contact-form input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 30%;
+}
+
+.contact-form textarea {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 30%;
+    height: 100px;
+    border: none;
+}
+
+.contact-form button {
+    padding: 10px;
+    width: 5%;
+    border: none;
+    border-radius: 10px;
+    background-color: #DBA765;
+    color: white;
+    position: absolute;
+    top: 105%;
+    left: 13%;
+}
+.contact-form button:hover{
+    background-color: #A7722F;
+    cursor: pointer;
+}
+.map{
+    width: 100%;
+    position: absolute;
+    top:160%;
+    left: 0;
+}

@@ -14,7 +14,7 @@ import MapComponent from '../../components/GooglemapComponent';
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
-  const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;;
+  const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;
 
   const handleContentClick = () => {
     navigate(`/room`);
