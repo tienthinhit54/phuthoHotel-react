@@ -11,6 +11,7 @@ const SliderWrapper = styled.div`
   width: 100%;
   height: 520px;
   overflow: hidden;
+  object-fit: cover;
 `;
 
 const Slide = styled.div<{ background: string; current: boolean }>`

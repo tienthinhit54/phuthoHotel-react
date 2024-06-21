@@ -1,0 +1,99 @@
+.fly{
+    display: flex;
+    flex-direction: column;
+    font-family: "Judson", serif;
+}
+.baner-fly{
+    width: 100%;
+
+}
+.baner-fly img{
+    object-fit: cover;
+    width: 100%;
+    height: 520px;
+}
+.baner-fly h1{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 10.5% 0 10.2% 0 ;
+}
+.content-fly{
+    display: block;
+}
+.content1{
+    display: flex;
+    padding: 40px;
+}
+.content1 img{
+    object-fit: cover;
+    width: 40%;
+    height: 340px;
+    padding-left: 9%;
+}
+.content1-text{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    text-align: start;
+    padding: 20px;    
+}
+.content1-text h1{
+    color: #DBA765;
+}
+.content1-text p{
+    color: #555555;
+}
+.content2{
+    display: flex;
+    padding: 40px;
+}
+.content2 img{
+    object-fit: cover;
+    width: 40%;
+    height: 340px;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+}
+.content2-text{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 2% 0 4% 23.5%;
+    text-align: right;
+}
+.content2-text h1{
+    color: #DBA765;
+}
+.content2-text p{
+    color: #555555;
+}
+
+.content3{
+    display: flex;
+    padding: 40px;
+}
+.content3 img{
+    object-fit: cover;
+    width: 40%;
+    height: 340px;
+    padding-left: 9%;
+}
+.content3-text{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    text-align: start;
+    padding: 20px;    
+}
+.content3-text h1{
+    color: #DBA765;
+}
+.content3-text p{
+    color: #555555;
+}

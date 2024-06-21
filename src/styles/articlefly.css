@@ -1,0 +1,94 @@
+.card-fly {
+    padding-bottom: 400px;
+}
+.card-fly h1{
+    color: #A7722F;
+}
+.fly-article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-fly-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px; /* khoảng cách giữa các bài viết */
+}
+
+.item-cardfly {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    position: absolute;
+    left: 50%;
+    top:208%;
+    transform: translate(-50%,-50%);
+}
+
+.item-fly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px; 
+    background-color: #f8f8f8;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.item-fly img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.text-item-fly {
+    text-align: center;
+}
+.text-item-fly h2{
+    text-align: start;
+    position: absolute;
+    background-color: #DBA765;
+    font-size: 0.7rem;
+    padding: 5px;
+    top: 38.8%;
+    color: white;
+}
+.text-item-fly h3{
+    text-align: start;
+    padding-left: 10px;
+    color: #404040;
+}
+.text-item-fly h3:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.text-item-fly p{
+    width: 100%;
+    font-size: 0.85rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    font-size: 1rem;
+    -webkit-line-clamp: 3;
+    text-align: start;
+    padding-left: 10px;
+    color: #555555;
+}
+
+.text-fly-admin {
+    display: flex;
+}
+.text-fly-admin i {
+    color: #DBA765;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.text-fly-admin span{
+    color: #999999;
+    font-size: 0.85rem;
+    font-family: "Judson", serif;
+}

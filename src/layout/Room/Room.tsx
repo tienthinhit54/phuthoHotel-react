@@ -36,6 +36,7 @@ const RoomPage: React.FC = () => {
     };
     fetchUploadedData();
   }, []);
+ 
   return (
     <div className='room'>
       <ImageSliderRoom />

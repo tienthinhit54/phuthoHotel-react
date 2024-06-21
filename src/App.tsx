@@ -1,22 +1,27 @@
 import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { Room } from './routes/Room';
-import { Home } from './routes/Home';
 import Layout from './components/Layout';
-import { Massage } from './routes/Massage';
-import { Service } from './routes/Service';
+import Detailroom from './layout/Room/Detail';
+import Res from './layout/Service/ServicePage';
+import Fly from './layout/Service/Fly';
 import { Contact } from './routes/Contact';
+import { Massage } from './routes/Massage';
+import { Home } from './routes/Home';
+import { Room } from './routes/Room';
+
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home />} />
+          <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="room" element={<Room />} />
-          <Route path='massage' element={<Massage />} />
-          <Route path="service" element={<Service />} />
+          <Route path="roomdetail/:id" element={<Detailroom />} />
+          <Route path="massage" element={<Massage />} />
+          <Route path="/service/res" element={<Res />}/>
+          <Route path="/service/fly" element={<Fly />}/>
           <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>

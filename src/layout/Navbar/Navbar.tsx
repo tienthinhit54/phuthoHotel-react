@@ -19,12 +19,12 @@ const Navbar: React.FC = () => {
     navigate(`/massage`);
   }
 
-  const handleServiceClick = () => {
-    navigate(`/service`);
+  const handleServiceClick = (subService: string) => {
+    navigate(`/service/${subService}`);
   }
 
   const handleContactClick = () => {
-    navigate(`/contact`);
+    navigate(`/contact/`);
   }
 
   return (
@@ -34,7 +34,13 @@ const Navbar: React.FC = () => {
         <span className='room' onClick={handleRoomClick}>PHÒNG NGHỈ</span>
         <img src={logo} alt='logo' className='nav-logo' />
         <span className='massage' onClick={handleMassageClick}>MASSAGE</span>
-        <span className='service' onClick={handleServiceClick}>CÁC DỊCH VỤ KHÁC</span>
+        <div className='service-dropdown'>
+          <span className='service'>CÁC DỊCH VỤ KHÁC</span>
+          <div className='dropdown-content'>
+            <span onClick={() => handleServiceClick('res')}>Nhà hàng</span>
+            <span onClick={() => handleServiceClick('fly')}>Đưa đón sân bay</span>
+          </div>
+        </div>
         <span className='contact' onClick={handleContactClick}>LIÊN HỆ</span>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </div>

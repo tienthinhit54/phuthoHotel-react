@@ -15,7 +15,7 @@ interface upContact {
   mess: string;
 }
 
-const HomePage: React.FC = () => {
+const ContactPage: React.FC = () => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;
   const [fullname, setFullname] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
@@ -122,4 +122,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default ContactPage;

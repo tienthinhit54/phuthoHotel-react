@@ -1,0 +1,91 @@
+.Res{
+    font-family: "Judson", serif;
+}
+.baner-Res img{
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+}
+.text-baner-res{
+    position: absolute;
+    width: 100%;
+    height: 540px;
+    top:26.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.text-baner-res h1{
+    padding-top: 15%;
+}
+.content-Res{
+    display: flex;
+    flex-direction: column;
+}
+.contentres1{
+    display: flex;
+    padding-left: 15%;
+}
+.contentres1 img{
+    object-fit: cover;
+    width: 20%;
+    height: 300px;
+    margin: 10px;
+}
+.contentres1-text{
+    text-align: start;
+    width: 30%;
+    padding-top: 5%;
+}
+.contentres1-text h1{
+    color: #DBA765;
+}
+.contentres1-text p{
+    color: #555555;
+}
+.contentres2{
+    display: flex;
+    padding-left: 9.55%;   
+    padding-top: 1%;
+}
+
+.contentres2 img{
+    height: 300px;
+    width: 32%;
+    position: absolute;
+    left: 51.5%;
+    object-fit: cover;
+}
+.contentres2-text{
+    text-align: right;
+    width: 30%;
+    padding: 3% 0 7% 15%;
+}
+.contentres2-text h1{
+    color: #DBA765;
+}
+.contentres2-text p{
+    color: #555555;
+}
+.contentres3{
+    display: flex;
+    padding-left: 15%;
+}
+.contentres3 img{
+    object-fit: cover;
+    width: 41%;
+    height: 300px;
+    margin: 10px;
+}
+.contentres3-text{
+    text-align: start;
+    width: 30%;
+    padding-top: 5%;
+}
+.contentres3-text h1{
+    color: #DBA765;
+}
+.contentres3-text p{
+    color: #555555;
+}

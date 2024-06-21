@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, limit, query } from 'firebase/firestore';
-import { useParams } from 'react-router-dom';
 import { firestore } from '../config/firebase';
 import '../styles/newshomepage.css'
-import { PushData } from '../Data/PushData';
 
 interface UploadBreakfastData {
     id: string;
