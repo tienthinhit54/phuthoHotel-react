@@ -9,6 +9,7 @@ import { Contact } from './routes/Contact';
 import { Massage } from './routes/Massage';
 import { Home } from './routes/Home';
 import { Room } from './routes/Room';
+import DetailMass from './layout/Massage/DetailMass';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="room" element={<Room />} />
           <Route path="roomdetail/:id" element={<Detailroom />} />
           <Route path="massage" element={<Massage />} />
+          <Route path="massdetail/:id" element={<DetailMass />} />
           <Route path="/service/res" element={<Res />}/>
           <Route path="/service/fly" element={<Fly />}/>
           <Route path="contact" element={<Contact />} />

@@ -1,0 +1,77 @@
+.mass-detail{
+    font-family: "Judson", serif;
+}
+.baner-massdetail img{
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+}
+.text-baner-massdetail{
+    position: absolute;
+    width: 100%;
+    height: 540px;
+    top:26.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.text-baner-massdetail h1{
+    padding-top: 13%;
+    font-size: 2.5rem;
+}
+.mota-detailmass{
+    padding-top: 50px;
+}
+.mota-detailmass h1{
+    color: #A7722F;
+}
+.top-mota{
+    display: flex;
+    padding-bottom: 20px;
+    padding-left: 22.8%;
+}
+.top-mota img{
+    object-fit: cover;
+    width: 25%;
+    height: 280px;
+}
+.img-top-mota img{
+    object-fit: cover;
+    width: 146.7%;
+    height: 280px;
+    padding-left:8%;
+}
+.bottom-mota{
+    display: flex;
+    padding-left: 22.8%;
+}
+.bottom-mota img{
+    width: 40.3%;
+    height: 280px;
+    object-fit: cover;
+}
+.img-bottom-mota img{
+    width: 85%;
+}
+.sauna-detailmass{
+    padding-top: 50px;
+}
+.sauna-detailmass h1{
+    color: #A7722F;
+}
+.top-sauna img{
+    margin: 20px;
+    width: 26%;
+}
+.center-sauna img{
+    object-fit: cover;
+    width: 54.3%;
+    height: 290px;
+}
+.bottom-sauna img{
+    width: 16.65%;
+    height: 290px;
+    object-fit: cover;
+    margin: 20px;
+}

@@ -50,7 +50,6 @@ const ImageSliderRoom: React.FC = () => {
           current={index === currentIndex}
         />
       ))}
-      
     </SliderWrapper>
   );
 };

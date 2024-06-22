@@ -8,6 +8,7 @@ import img1 from '../../shared/images/mass.png'
 import img2 from '../../shared/images/mass4.png'
 import img3 from '../../shared/images/mass.png'
 import '../../styles/massage.css'
+import { PushData } from '../../Data/PushData';
 interface UploadresData {
   id: string;
   image: string;
