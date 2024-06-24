@@ -4,6 +4,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { firestore } from '../../config/firebase';
 import ImageSliderRoom from './Sliceder';
 import '../../styles/DetailRoom.css'
+import Slider from '../../components/Slider';
 
 interface RoomDetail {
   id: string;
@@ -52,7 +53,7 @@ const Detailroom: React.FC = () => {
   return (
     <div className="room-detail">
       <div className='slider-room'>
-        <ImageSliderRoom />
+        <Slider/>
       </div>
       <div className='text-contentroom'>
         <div className='text-left'>
