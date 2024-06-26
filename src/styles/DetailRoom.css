@@ -1,8 +1,79 @@
 .room-detail{
+    font-family: "Judson", serif;
+}
+.room-detailname{
+    position: absolute;
+    top: 18%;
+    color: white;
+    z-index: 2;
+    left: 50%;
+    transform: translate(-50%,-50%);
     
+}
+.text-contentroom{
+    background-color: #F2EFE8;
+    height: 300px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .text-left{
     white-space: pre-wrap;
     text-align: start;
     padding-left: 200px;
+    width: 25%;
+    color: #404040;
+    border-right: 1px solid #8F826B;
+    padding-right: 240px;
+}
+.text-left h1{
+    text-align: center;
+}
+.text-right{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 6%;
+    top: 107%;
+    
+}
+.text-right h1{
+    text-align: start;
+    padding-left: 130px;
+    color: #404040;
+}
+.text-right-text{
+    display: flex;
+}
+
+.text-right-left{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+.text-right-right{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    
+}
+.text-right-left i{
+    padding-bottom: 15px;
+    color: #DBA765;
+}
+.text-right-right i{
+    padding-bottom: 15px;
+    padding-left: 50px;
+    color: #DBA765;
+}
+.text-right-left span{
+    font-family: "Lato", sans-serif;
+    font-weight: 200;
+    padding-left: 5px;
+    color: #555555;
+}
+.text-right-right span{
+    font-family: "Lato", sans-serif;
+    font-weight: 200;
+    padding-left: 5px;
+    color: #555555;
 }

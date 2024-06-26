@@ -1,0 +1,70 @@
+.complant{
+    font-family: "Lato", serif;
+    padding-top: 20px;
+}
+
+.container-complant{
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center;     /* Căn giữa theo chiều dọc */
+}
+.iteam-complant{
+    width: 45%;
+}
+.img-text-complant{
+    display: flex;
+}
+.img-text-complant img{
+    object-fit: cover;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+.text-right-complant{
+    padding-left: 20px;
+    text-align: start;
+}
+.text-right-complant h2{
+    color: #404040;
+    font-weight: 600;
+}
+.item-card-complant h3{
+    text-align: start;
+    font-weight: 200;
+    color: #555555;
+}
+.input-complant{
+    display: flex;
+    flex-direction: column;
+    background-color: #F2EFE8;
+}
+.input-complant h1{
+    color: #404040;
+    font-size: 1.5rem;
+}
+.input-complant-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center;     /* Căn giữa theo chiều dọc */
+   
+}
+.input-complant-text textarea{
+    width: 45%;
+    margin: 10px;
+    border-radius: 5px;
+}
+.input-complant-text input{
+    position: absolute;
+    top: 280%;
+    left: 27.5%;
+}
+.input-complant-text button{
+    margin-top: 12px;
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #DBA765;
+    color: white;
+}

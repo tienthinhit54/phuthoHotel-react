@@ -26,7 +26,9 @@ const Navbar: React.FC = () => {
   const handleContactClick = () => {
     navigate(`/contact/`);
   }
-
+  const handleSearchClick = () => {
+    navigate(`/search/`);
+  }
   return (
     <nav className='NavbarItem'>
       <div className='nav'>
@@ -42,7 +44,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         <span className='contact' onClick={handleContactClick}>LIÊN HỆ</span>
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <span className='search' onClick={handleSearchClick}><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
       </div>
     </nav>
   );

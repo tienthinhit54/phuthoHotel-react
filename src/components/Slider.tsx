@@ -1,66 +1,74 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import '../styles/imageSlider.css'
+import img from '../shared/images/room.jpg'
+import img1 from '../shared/images/room1.png'
+import img2 from '../shared/images/room3.png'
+import img3 from '../shared/images/room.jpg'
+import img4 from '../shared/images/room3.png'
 
-const CARDS = 100;
-const MAX_VISIBILITY = 3;
 
-interface CardProps {
-  image: string;
-}
-
-const Card: React.FC<CardProps> = ({ image }) => (
-  <div className="card">
-    <img src={image} alt="" />
-  </div>
-);
-
-interface CarouselProps {
-  children: React.ReactNode;
-}
-
-const Carousel: React.FC<CarouselProps> = ({ children }) => {
-  const [active, setActive] = useState(2);
-  const count = React.Children.count(children);
-
+const Slider: React.FC = () => {
   return (
-    <div className="carousel">
-      {active > 0 && (
-        <button onClick={() => setActive((i) => i - 1)}>&lt;</button>
-      )}
-      {React.Children.map(children, (child, i) => (
-        <div
-          className="container"
-          style={{
-            '--active': i === active ? 1 : 0,
-            '--offset': (active - i) / 3,
-            '--direction': Math.sign(active - i),
-            '--abs-offset': Math.abs(active - i) / 3,
-            'pointer-events': active === i ? 'auto' : 'none',
-            opacity: Math.abs(active - i) >= MAX_VISIBILITY ? '0' : '1',
-            display: Math.abs(active - i) > MAX_VISIBILITY ? 'none' : 'block',
-          } as React.CSSProperties}
-        >
-          {child}
-        </div>
-      ))}
-      {active < count - 1 && (
-        <button className="nav-right" onClick={() => setActive((i) => i + 1)}>
-          &gt;
-        </button>
-      )}
+    <div className="container">
+      <img src={img1} alt="" />
+      <Swiper
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        loop={true}
+        slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+        }}
+     
+        modules={[EffectCoverflow, Pagination, Navigation]}
+        className="swiper_container"
+      >
+        <SwiperSlide>
+          <img src={img} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img1} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img2} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img3} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img4} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img1} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img2} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img3} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img4} alt="slide_image" />
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
-};
-
-const Slider: React.FC = () => (
-  <div className="slider-image">
-    <Carousel>
-      {[...new Array(CARDS)].map((_, i) => (
-        <Card key={i} image={`https://via.placeholder.com/150?text=Card+${i + 1}`} />
-      ))}
-    </Carousel>
-  </div>
-);
+}
 
 export default Slider;
+

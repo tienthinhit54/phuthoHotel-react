@@ -49,6 +49,9 @@ const OrtherHomePage: React.FC = () => {
     const handleMassClick = () => {
         navigate(`/massage`);
     }
+    const handleResClick = () => {
+        navigate(`/service/res`);
+    }
     return (
         <>
             <div className='utilities-home'>
@@ -60,7 +63,7 @@ const OrtherHomePage: React.FC = () => {
                             <div className='text-res'>
                                 <p className='res'>Nhà hàng</p>
                                 <p className='info'>{data.info}</p>
-                                <button>{data.button}</button>
+                                <button onClick={handleResClick}>{data.button}</button>
                             </div>
                         </div>
                     )}

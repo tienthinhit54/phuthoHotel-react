@@ -5,6 +5,8 @@ import { firestore } from '../../config/firebase';
 import ImageSliderRoom from './Sliceder';
 import '../../styles/DetailRoom.css'
 import Slider from '../../components/Slider';
+import { PushData } from '../../Data/PushData';
+import { Complant } from '../../components/ComplantComponent';
 
 interface RoomDetail {
   id: string;
@@ -21,10 +23,15 @@ interface RoomDetail {
   bed: string;
   buffet: string;
   wf: string;
-  sofa1: string;
+  sofa: string;
   safe: string;
   fly: string;
   modelPath: string; // Path to the 3D model of the room
+  TV: string;
+  air: string;
+  bathroom: string;
+  tea: string;
+  table: string;
 }
 
 const Detailroom: React.FC = () => {
@@ -53,14 +60,66 @@ const Detailroom: React.FC = () => {
   return (
     <div className="room-detail">
       <div className='slider-room'>
-        <Slider/>
+        <Slider />
+      </div>
+      <div className='room-detailname'>
+        <h1>{roomDetail.nameroom}</h1>
+        <p>{roomDetail.des}</p>
       </div>
       <div className='text-contentroom'>
         <div className='text-left'>
+          <h1>Thông tin phòng </h1>
           <p> {roomDetail.info}</p>
         </div>
-      </div>
+        <div className='text-right'>
+          <h1>Tiện nghi</h1>
+          <div className='text-right-text'>
+            <div className='text-right-left'>
+              <i className="fa-sharp fa-solid fa-chart-area">
+                <span>{roomDetail.acreage}</span>
+              </i>
+              <i className="fa-solid fa-bed">
+                <span>{roomDetail.bed}</span>
+              </i>
+              <i className="fa-solid fa-bell-concierge">
+                <span>{roomDetail.buffet}</span>
+              </i>
+              <i className="fa-solid fa-wifi">
+                <span>{roomDetail.wf}</span>
+              </i>
+              <i className="fa-solid fa-couch">
+                <span>{roomDetail.sofa}</span>
+              </i>
 
+              <i className="fa-solid fa-tv">
+                <span>{roomDetail.TV}</span>
+              </i>
+
+            </div>
+            <div className='text-right-right'>
+              <i className="fa-solid fa-wind">
+                <span>{roomDetail.air}</span>
+              </i>
+              <i className="fa-solid fa-shower">
+                <span>{roomDetail.bathroom}</span>
+              </i>
+              <i className="fa-solid fa-mug-hot">
+                <span>{roomDetail.tea}</span>
+              </i>
+              <i className="fa-solid fa-table">
+                <span>{roomDetail.table}</span>
+              </i>
+              <i className="fa-solid fa-truck-plane">
+                <span>{roomDetail.fly}</span>
+              </i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='complant-room'>
+        
+        <Complant/>
+      </div>
     </div>
   );
 };
