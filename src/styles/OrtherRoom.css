@@ -1,0 +1,68 @@
+.roomorther{
+    width: 100%;
+    margin-top: 50px;
+    height: 500px;
+    width: 70%;
+    padding-left: 280px;
+    cursor: pointer;
+}
+.roomorther h1{
+    color: #A7722F;
+    font-weight: 400;
+    font-size: 2rem;
+}
+.iteam-orther-room{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.item-card-ortherroom{
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px;
+    flex-direction: column;
+    text-align: start;
+    flex: 1 1 calc(25% - 10px);
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.item-card-ortherroom img{
+    width: 100%;
+}
+.item-card-ortherroom h2{
+    font-size: small;
+    position: absolute;
+    background-color: #DBA765;
+    font-weight: 300;
+    padding: 5px;
+    top: 313.6%;
+    color: white;
+}
+.text-card-ortherroom{
+    padding: 0 0 0 10px;
+}
+.text-card-ortherroom p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    font-size: 0.85rem;
+    -webkit-line-clamp: 3;
+}
+
+.text-card-ortherroom h3:hover{
+    text-decoration: underline;
+}
+.text-time-ortherroom{
+    color: #DBA765;
+    font-size: small;
+    padding-bottom: 10px;
+}
+.text-time-ortherroom span{
+    font-family: "Lato",sans-serif;
+    padding-left: 2px;
+    color: #999999;
+    font-size: smaller;
+    
+}

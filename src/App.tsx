@@ -10,6 +10,7 @@ import { Massage } from './routes/Massage';
 import { Home } from './routes/Home';
 import { Room } from './routes/Room';
 import DetailMass from './layout/Massage/DetailMass';
+import { Search } from './routes/Search';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/service/res" element={<Res />}/>
           <Route path="/service/fly" element={<Fly />}/>
           <Route path="contact" element={<Contact />} />
+          <Route path="search" element={<Search />} />
         </Route>
       </Routes>
     </div>

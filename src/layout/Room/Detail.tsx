@@ -7,6 +7,7 @@ import '../../styles/DetailRoom.css'
 import Slider from '../../components/Slider';
 import { PushData } from '../../Data/PushData';
 import { Complant } from '../../components/ComplantComponent';
+import OrtherRoom from '../../components/OrtherRoom';
 
 interface RoomDetail {
   id: string;
@@ -32,6 +33,7 @@ interface RoomDetail {
   bathroom: string;
   tea: string;
   table: string;
+  content:string;
 }
 
 const Detailroom: React.FC = () => {
@@ -117,8 +119,10 @@ const Detailroom: React.FC = () => {
         </div>
       </div>
       <div className='complant-room'>
-        
         <Complant/>
+      </div>
+      <div className='orther-room'>
+       <OrtherRoom/>
       </div>
     </div>
   );
